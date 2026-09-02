@@ -1,0 +1,73 @@
+{% extends 'basic.html' %}
+
+{% block title %}
+Sign-up
+{% endblock title %}
+
+{% block body %}
+<br><br><br>
+<div class="container d-flex justify-content-center align-items-center mt-5">
+
+  <div class="card shadow p-4" style="width: 100%; max-width: 400px;">
+   {% for message in messages %}
+
+  <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+    <strong>{{message}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
+    
+    <h3 class="text-center mb-4 text-dark" >Sign Up</h3>
+
+    <form action="/auth/signup/" method="post">
+    {% comment %} <form action="{% url 'signup' %}" method="post"> {% endcomment %}
+
+      {% csrf_token %}
+
+      <!-- Email -->
+      <div class="mb-3">
+        <label class="form-label">Email address</label>
+        <input 
+          type="email" 
+          class="form-control" 
+          name="email" 
+          placeholder="name@example.com" 
+          required>
+      </div>
+
+      <!-- Password -->
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input 
+          type="password" 
+          class="form-control" 
+          name="pass1" 
+          placeholder="******" 
+          required>
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="mb-3">
+        <label class="form-label">Confirm Password</label>
+        <input 
+          type="password" 
+          class="form-control" 
+          name="pass2" 
+          placeholder="******" 
+          required>
+      </div>
+
+      <!-- Button -->
+      <button type="submit" class="btn btn-dark">
+        Sign Up
+      </button>
+
+      <p class="text-center mt-3 text-dark">
+        Already a user?
+        <a href="/auth/login/">Login</a>
+      </p>
+
+    </form>
+  </div>
+</div>
+{% endblock body %}

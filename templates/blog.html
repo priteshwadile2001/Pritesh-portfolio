@@ -1,0 +1,49 @@
+{% extends 'basic.html' %}
+
+{% block title %}Blog{% endblock title %}
+
+{% block body %}
+
+<div class="container section-title text-center my-4" data-aos="fade-up">
+    <h2>Welcome To My Blog</h2>
+    <p class="text-muted">Sharing my learning and development journey</p>
+</div>
+
+<div class="container">
+    <div class="row gy-4">
+
+        {% for post in posts reversed %}
+        <div class="col-lg-4 col-md-6" data-aos="fade-up">
+
+            <div class="card h-100 shadow-sm blog-card">
+
+                {% if post.img %}
+                <img src="{{ post.img.url }}" class="card-img-top" alt="blog image">
+                {% endif %}
+
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {{ post.title }}
+                    </h5>
+
+                    <p class="card-text text-muted">
+                        {{ post.description|truncatechars:300 }}
+                    </p>
+                </div>
+
+                <div class="card-footer bg-white border-0">
+                    <small class="text-muted">
+                        ✍️ {{ post.authname }} <br>
+                        🗓 {{ post.timestamp }}
+                    </small>
+                </div>
+
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock body %}

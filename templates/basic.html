@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>
+    {% block title %}
+        
+    {% endblock title %}
+
+  </title>
+
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="/static/assets/img/favicon.png" rel="icon">
+  <link href="/static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/static/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  
+  <link href="/static/assets/css/main.css" rel="stylesheet">
+   {% block stylecss %}
+    
+   {% endblock stylecss %}
+
+  <!-- =======================================================
+  * Template Name: iPortfolio
+  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+  * Updated: Jun 29 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header dark-background d-flex flex-column">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <div class="profile-img">
+      <img src="\static\assets\img\Pritesh_Profile.jpg" alt="" class="img-fluid rounded-circle">
+    </div>
+
+    <a href="/" class="logo d-flex align-items-center justify-content-center">
+      <!-- Uncomment the line below if you also wish to use an image logo -->
+      <!-- <img src="assets/img/logo.png" alt=""> -->
+      <!-- <h1 class="sitename">Welcome {{ user.username }}</h1> -->
+      <h1 class="sitename">Pritesh Wadile</h1>
+    </a>
+
+    <div class="social-links text-center">
+      <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+      <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+      <a href="https://teams.live.com/v2/" target="_blank" class="google-plus"><i class="bi bi-skype"></i></a>
+      <a href="https://github.com/priteshwadile2001" target="_blank" class="gitgub"><i class="bi bi-github"></i></a>
+      <!-- target="_blank" -- link get open in new tab -->
+      <a href="https://www.linkedin.com/in/pritesh-wadile-3a7910212/" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a>
+    </div>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="/" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
+  
+        <!-- <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+      
+        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li> -->
+        
+        <li><a href="/contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+
+        {% if not request.user.is_authenticated %}
+        <li><a href="/auth/signup"><i class="bi bi-envelope navicon"></i> signup</a></li>
+        <li><a href="/auth/login"><i class="bi bi-envelope navicon"></i> Login </a></li>
+        {% else %}
+        <li><a href="/about"><i class="bi bi-person navicon"></i> About</a></li>
+              <li><a href="/blog"><i class="bi bi-images navicon"></i> Blog</a></li>
+              <li><a href="/resume"><i class="bi bi-file-earmark-text navicon"></i>    Resume Skills</a></li>
+        
+        <li><a href="/auth/logout"><i class="bi bi-envelope navicon"></i> Logout </a></li>
+        {% endif %}
+        
+        
+      </ul>
+    </nav>
+
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by <a href="https://bootstrapmade.com/">Devil</a>
+      </div>
+    
+  </header>
+ <!-- Hero Section -->
+    <!-- /Hero Section -->
+
+  <main class="main">
+
+   {% block Hero_backgroung %}
+        
+    {% endblock Hero_backgroung %}
+
+    {% block body %}
+        
+    {% endblock body %}
+  </main>
+
+  
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+
+  {% block script %}
+    
+  {% endblock script %}
+
+  <script src="/static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/assets/vendor/php-email-form/validate.js"></script>
+  <script src="/static/assets/vendor/aos/aos.js"></script>
+  <script src="/static/assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="/static/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="/static/assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="/static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/static/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="/static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="/static/assets/js/main.js"></script>
+
+</body>
+
+</html>
